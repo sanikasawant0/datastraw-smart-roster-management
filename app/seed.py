@@ -21,10 +21,17 @@ def seed_database():
     try:
         print("Starting database seeding...")
 
-        # Prevent duplicate seed data
+        
+        # Prevent duplicate or incomplete seed data
         if db.query(Employee).first():
             print("Database already contains employees. Seeding cancelled.")
             return
+
+        # Remove orphaned pods from an incomplete previous initialization
+        if db.query(Pod).first():
+            print("Removing incomplete pod records...")
+            db.query(Pod).delete(synchronize_session=False)
+            db.commit()
 
         # 1. Create pods
         pod_names = [
