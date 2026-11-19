@@ -12,6 +12,7 @@ PROJECT_ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(PROJECT_ROOT))
 
 from app.database import SessionLocal
+from app.bootstrap import initialize_database
 from app.services.roster_validator import validate_minimum_staffing
 from app.services.roster_generator import generate_monthly_roster
 from app.models import (
@@ -34,7 +35,9 @@ st.set_page_config(
 st.title("Smart Roster Management System")
 st.caption("Employee scheduling, workforce allocation and coverage monitoring")
 
+initialize_database()
 db = SessionLocal()
+
 
 try:
     # Sidebar navigation
