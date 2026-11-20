@@ -171,7 +171,7 @@ Start the API and open `/docs` to explore the interactive Swagger documentation.
 ### Step 1: Clone the repository
 
 ```bash
-git clone <YOUR_GITHUB_REPOSITORY_URL>
+git clone https://github.com/sanikasawant0/datastraw-smart-roster-management.git
 cd datastraw-roster-management
 ```
 
