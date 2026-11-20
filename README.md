@@ -305,11 +305,13 @@ The sample dataset contains 19 single-resource brands out of 24, approximately 7
 
 ### 4. What happens when an employee manages all processes for a brand but is unavailable on a required working day?
 
-The generator excludes that employee from scheduling on the unavailable date.
+TThe roster generator excludes employees who are inactive, on an approved leave, or on a weekly off when generating the schedule.
 
-If no other eligible employee is assigned to the required process, the system reports a staffing gap.
+If an employee becomes unavailable after the roster has been generated, the manager can mark the employee unavailable through the dashboard. The system updates the roster entry and revalidates staffing coverage.
 
-It does not override weekly offs or approved leave to force coverage.
+If no other eligible employee is available, the system reports a staffing gap rather than violating availability constraints.
+
+The current version does not automatically regenerate the entire roster after a manual unavailability change.
 
 ### 5. How does your system handle conflicting requirements or insufficient staffing?
 
