@@ -504,13 +504,13 @@ try:
 
                 unavailable_date = st.date_input(
                     "Unavailable date",
-                    value=date(2026, 12, 2),
+                    value=date(roster.year, roster.month, 1),
                     min_value=date(roster.year, roster.month, 1),
                     max_value=date(
-                        roster.year,
-                        roster.month,
-                        calendar.monthrange(roster.year, roster.month)[1],
-                    ),
+                    roster.year,
+                    roster.month,
+                    calendar.monthrange(roster.year, roster.month)[1],
+                ),
                 )
 
                 reason = st.text_input(
